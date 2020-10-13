@@ -8,23 +8,24 @@ import { HistoryComponent } from './components/history/history.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: LayoutComponent, // this is the component with the <router-outlet> in the template
+    path: 'layout',
+    component: LayoutComponent, 
     children: [
       {
-        path: 'home', // child route path
-        component: HomeComponent, // child route component that the router renders
+        path: 'home', 
+        component: HomeComponent, 
       },
       {
         path: 'registration',
-        component: RegistrationComponent, // another child route component that the router renders
+        component: RegistrationComponent, 
       },
       {
         path: 'history',
-        component: HistoryComponent, // another child route component that the router renders
+        component: HistoryComponent, 
       },
     ],
   },
+  { path: '', redirectTo: 'layout/home', pathMatch: 'full', }
 ];
 
 @NgModule({

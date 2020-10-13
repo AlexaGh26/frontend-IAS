@@ -3,7 +3,7 @@
   <button
     mat-button mat-raised-button 
     color="primary" 
-    routerLink="/home" 
+    [routerLink]="['home']"
     routerLinkActive="active">Home
   </button>
 
@@ -11,14 +11,14 @@
     mat-button 
     mat-raised-button 
     color="primary" 
-    routerLink="/registration" 
+    [routerLink]="['registration']"
     routerLinkActive="active">Register Service
   </button>
 
   <button mat-button 
     mat-raised-button 
     color="primary" 
-    routerLink="/history"
+    [routerLink]="['history']"
     routerLinkActive="active">Consultation Hours
   </button>
 
