@@ -1,0 +1,64 @@
+<form id="container-form" [formGroup]="creditForm">
+  <header>
+    <div class="container-title">
+      <h2>Registration:</h2>
+      <span>Please enter your information</span>
+    </div>
+  </header>
+
+  <aside>
+    <p>
+      <mat-form-field appearance="legacy">
+        <input matInput placeholder="Name" formControlName="name">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="standard">
+        <input matInput placeholder="clientId" formControlName="clientId">
+      </mat-form-field>
+    </p>
+    <h4>Payment date:</h4>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="dp" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field>
+    </p>
+  </aside>
+
+  <main>
+    <p>
+      <mat-form-field appearance="standard">
+        <input matInput placeholder="Surname" formControlName="surName">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" required formControlName="email">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </p>
+    <h4>Requested value:</h4>
+    <p class="form-group">
+      <input class="form-control form-control-lg" type="number" value="20000" data-decimals="0" min="10000" max="100000"
+        step="10000" formControlName="creditAmount" />
+    </p>
+
+  </main>
+
+  <footer>
+      <button mat-raised-button color="accent" (click)="approbalCredit()" >Send</button>
+      <div *ngIf="showModal">
+        <h1 mat-dialog-title>your credit score</h1>
+        <div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>
+        <div mat-dialog-actions>
+          <button mat-button mat-dialog-close>Close</button>
+      </div>
+
+    </div>
+
+  </footer>
+</form>

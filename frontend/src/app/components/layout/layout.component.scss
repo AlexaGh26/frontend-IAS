@@ -1,0 +1,29 @@
+body {
+    margin: 0px;
+  }
+  #container {
+    overflow: auto;
+      margin: 0;
+      display: grid;
+      width: 100%;
+      height: 100vh;
+      grid-template-areas: "header  header"
+                           "main  main";
+      grid-template-rows: 150px 1fr;
+      grid-template-columns: 250px 1fr;
+    }
+  
+    
+  #container > main {
+      grid-area: main;
+    }
+  #container > header {
+      grid-area: header;
+      background-color: #4f59b4c4;
+      -webkit-box-shadow: -1px 4px 18px -6px #4f59b4;
+      -moz-box-shadow: -1px 4px 18px -6px #4f59b4;
+      box-shadow: -1px 4px 18px -6px #4f59b4;
+  
+  }
+  
+  
