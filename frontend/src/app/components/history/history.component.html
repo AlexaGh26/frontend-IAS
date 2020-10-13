@@ -26,32 +26,32 @@
 
         <ng-container matColumnDef="Total Hours Worked">
           <th mat-header-cell *matHeaderCellDef> Total Hours Worked </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.TotalHoursWorked}} </td>
         </ng-container>
       
         <ng-container matColumnDef="Total Extras">
           <th mat-header-cell *matHeaderCellDef> Total Extras </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.TotalExtras}} </td>
         </ng-container>
       
         <ng-container matColumnDef="Nightly Extras">
           <th mat-header-cell *matHeaderCellDef> Nightly Extras </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.NightlyExtra}} </td>
         </ng-container>
       
         <ng-container matColumnDef="Sunday Hours">
           <th mat-header-cell *matHeaderCellDef> Sunday Hours </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.SundayHours}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Sunday nightly Extras">
           <th mat-header-cell *matHeaderCellDef> Sunday nightly Extras </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.SundayNightlyExtras}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Normal Hours">
           <th mat-header-cell *matHeaderCellDef> Normal Hours </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.NormalHours}} </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -60,15 +60,15 @@
         <div class="conatiner-data">
           <div class="div-data">
             <h5>Number Technical:</h5>
-            <label for="">1099</label>
+            <label >{{idTechnical}}</label>
           </div>
           <div  class="div-data">
             <h5>Date Init:</h5>
-            <label for="">1099</label>
+            <label >{{dateInit}}</label>
           </div>
           <div  class="div-data">
             <h5>Date End:</h5>
-            <label for="">1099</label>
+            <label >{{dateEnd}}</label>
           </div>
         </div>
         </div>

@@ -5,6 +5,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { HoursService } from '../../services/hours.service'
 import { Subject } from 'rxjs';
+import * as moment from 'moment';
 
 export const MY_FORMATS = {
   parse: {
@@ -32,6 +33,8 @@ export const MY_FORMATS = {
   ],
 })
 export class RegistrationComponent implements OnInit {
+
+  
   destroy$: Subject<boolean> = new Subject();
   favoriteSeason: string;
   seasons: string[] = ['Emergency Service', 'Technical Service'];
@@ -57,6 +60,20 @@ export class RegistrationComponent implements OnInit {
 
   sendInformation(values) {
     console.log(values);
+    const validationDateInit = this.validationDate();
+    if (validationDateInit) {
+      alert('The initial date cannot be greater than the final date')
+      return;
+    }
+    if (this.registerForm.controls['registrationNumber'].valid ||
+      this.registerForm.controls['dateInit'].valid ||
+      this.registerForm.controls['hoursInit'].valid ||
+      this.registerForm.controls['dateEnd'].valid ||
+      this.registerForm.controls['hoursEnd'].valid ||
+      this.registerForm.controls['typeService'].valid) {
+      alert('Field without filling out, please enter all the information')
+      return;
+    }
     confirm('successfully saved record')
     this.hoursService.saveRegister$(values)
       .pipe(
@@ -66,6 +83,11 @@ export class RegistrationComponent implements OnInit {
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
+  }
+  validationDate() {
+    const dateInitFormat = moment(this.registerForm.value.dateInit, 'DD/MM/YYYY HH:mm:ss');
+    const dateEndFormat = moment(this.registerForm.value.dateEnd, 'DD/MM/YYYY HH:mm:ss');
+    return dateInitFormat.isAfter(dateEndFormat);
   }
 }
 
