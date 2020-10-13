@@ -65,12 +65,12 @@ export class RegistrationComponent implements OnInit {
       alert('The initial date cannot be greater than the final date')
       return;
     }
-    if (this.registerForm.controls['registrationNumber'].valid ||
-      this.registerForm.controls['dateInit'].valid ||
-      this.registerForm.controls['hoursInit'].valid ||
-      this.registerForm.controls['dateEnd'].valid ||
-      this.registerForm.controls['hoursEnd'].valid ||
-      this.registerForm.controls['typeService'].valid) {
+    if (!this.registerForm.controls['registrationNumber'].valid ||
+      !this.registerForm.controls['dateInit'].valid ||
+      !this.registerForm.controls['hoursInit'].valid ||
+      !this.registerForm.controls['dateEnd'].valid ||
+      !this.registerForm.controls['hoursEnd'].valid ||
+      !this.registerForm.controls['typeService'].valid) {
       alert('Field without filling out, please enter all the information')
       return;
     }
