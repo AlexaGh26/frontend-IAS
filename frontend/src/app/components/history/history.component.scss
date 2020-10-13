@@ -1,0 +1,39 @@
+.container-consult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #container-form {
+    width: 400px;
+    height: 500px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+  span {
+    color: gray;
+    margin: 30px;
+    text-align: center;
+  }
+  
+  h2 {
+    text-align: center;
+    color: rgb(51, 16, 107);
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+  .container-input{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 20px;
+  }
+  footer{
+      text-align: center;
+  }
+  .container-title{
+      height: 120px;
+      width: 100%;
+      margin: 10px;
+  }
+}

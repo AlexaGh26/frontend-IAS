@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { PeriodicElement } from 'src/app/models/periodic.model';
@@ -16,9 +17,14 @@ export class HistoryComponent implements OnInit {
   dataSourceRejected;
   displayedColumns = ['name', 'surName', 'email', 'date', 'clientId', 'approved', 'id', 'creditAmount'];
 
-  constructor(private credictService: CreditService ) {
-    
-  }
+  creditForm: FormGroup;
+  constructor(private formBuilder: FormBuilder, private creditService: CreditService
+    ) {
+      this.creditForm = this.formBuilder.group({
+        registrationNumber: '',
+        weekNumber: '',
+      });
+    }
 
   ngOnInit() {
 

@@ -7,7 +7,6 @@ import { MenuModule } from '../menu/menu.module';
 import { CommonModule } from "@angular/common";
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { TableModule } from '../table/table.module';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 
@@ -22,7 +21,6 @@ import {MatDialogModule} from '@angular/material/dialog';
         CommonModule,
         MatTableModule,
         MatPaginatorModule,
-        TableModule,
         MatTabsModule,
         MatDialogModule,
     ]

@@ -8,7 +8,6 @@ import { HomeModule } from './pages/home/home.module';
 import { RegistrationModule } from './components/registration/registration.module';
 import { LayoutModule } from './components/layout/layout.module';
 import { CommonModule } from "@angular/common";
-import { TableModule } from './components/table/table.module';
 import { HistoryModule } from './components/history/history.module';
 import { ModalResultCreditModalModule } from './components/modal-result-credit/modal-result-credit.module';
 import {CreditService} from './services/credit.service';
@@ -28,7 +27,6 @@ import { HttpClientModule } from '@angular/common/http';
     RegistrationModule,
     LayoutModule,
     CommonModule,
-    TableModule,
     HistoryModule,
     ModalResultCreditModalModule,
     HttpClientModule

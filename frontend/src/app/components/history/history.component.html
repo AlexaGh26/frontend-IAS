@@ -1,18 +1,26 @@
-<mat-tab-group dynamicHeight >
-    <mat-tab label="Credits Approved"  isActive="check($event)">
-      <div class="example-small-box mat-elevation-z4">
-       <app-table 
-       [dataSource]="dataSource"
-       [displayedColumns]="displayedColumns"></app-table>
+<div class="container-consult">
+  <form id="container-form" [formGroup]="creditForm">
+    <header>
+      <div class="container-title">
+        <h2>Working hours calculation module:</h2>
+        <span>Please enter technician id and week number</span>
       </div>
-    </mat-tab>
-    <mat-tab label="Rejected Credits">
-      <div class="example-large-box mat-elevation-z4">
-        <app-table 
-        [dataSource]="dataSourceRejected"
-        [displayedColumns]="displayedColumns"></app-table>
-       </div>
-    </mat-tab>
-  </mat-tab-group>
-
-
+    </header>
+  
+    <aside>
+      <div class="container-input">
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Registration number" formControlName="registrationNumber">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Week Number" formControlName="weekNumber">
+        </mat-form-field>
+    </div>
+      </aside>
+    <footer>
+        <button mat-raised-button color="accent" >Send</button>
+    </footer>
+  </form>
+  
+  
+</div>
