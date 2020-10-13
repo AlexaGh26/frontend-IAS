@@ -6,6 +6,7 @@ body {
   height: 100px;
   width: 90%;
   margin: auto;
+  margin-top: 50px;
 }
 
 span {
@@ -14,7 +15,7 @@ span {
 
 h2 {
   color: rgb(51, 16, 107);
-  margin-top: 25px;
+  margin-top: 36px;
 }
 
 h4 {
@@ -35,7 +36,7 @@ h4 {
   grid-template-areas: "header  header"
     "aside  main"
     "footer  footer";
-  grid-template-rows: 80px 350px 40px;
+  grid-template-rows: 90px 350px 40px;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -86,3 +87,16 @@ h4 {
   text-align: center;
   
 }
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 14px;
+  }
+
+  #container-radio-button {
+    height: 66px;
+    padding-top: 30px;
+    box-sizing: border-box;
+    width: 369px;
+    margin-left: -25px;
+    color: gray;
+    font-size: 14px;
+  }

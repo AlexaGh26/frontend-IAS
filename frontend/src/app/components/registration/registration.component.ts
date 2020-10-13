@@ -42,8 +42,8 @@ export class RegistrationComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private creditService: CreditService
     ) {
       this.creditForm = this.formBuilder.group({
-        name: '',
-        surName: '',
+        registrationNumber: '',
+        hours: '',
         email: new FormControl('', [Validators.required, Validators.email]),
         date: '',
         creditAmount: '',

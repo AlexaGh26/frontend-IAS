@@ -11,6 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {ModalResultCreditModalModule} from '../modal-result-credit/modal-result-credit.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [RegistrationComponent],
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatCardModule,
         MatDatepickerModule,
         ModalResultCreditModalModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatRadioModule
     ]
 })
 export class RegistrationModule { }

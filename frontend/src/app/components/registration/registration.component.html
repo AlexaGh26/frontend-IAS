@@ -9,42 +9,45 @@
   <aside>
     <p>
       <mat-form-field appearance="legacy">
-        <input matInput placeholder="Name" formControlName="name">
+        <input matInput placeholder="Registration number" formControlName="registrationNumber">
       </mat-form-field>
     </p>
-    <p>
-      <mat-form-field appearance="standard">
-        <input matInput placeholder="clientId" formControlName="clientId">
-      </mat-form-field>
-    </p>
-    <h4>Payment date:</h4>
+    <h4>Start date and time:</h4>
     <p>
       <mat-form-field appearance="fill">
-        <mat-label>Date</mat-label>
+        <mat-label>Date Start</mat-label>
         <input matInput [matDatepicker]="dp" formControlName="date">
         <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
         <mat-datepicker #dp></mat-datepicker>
       </mat-form-field>
     </p>
+    <p>
+      <mat-form-field appearance="legacy">
+        <input matInput placeholder="HH:MM" formControlName="hours">
+      </mat-form-field>
+    </p>
   </aside>
 
   <main>
+    <p id="container-radio-button">
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Servicio de Emergencia</mat-radio-button>
+        <mat-radio-button value="2">Revision Técnica</mat-radio-button>
+      </mat-radio-group>
+    </p>
+    <h4>Final date and time:</h4>
     <p>
-      <mat-form-field appearance="standard">
-        <input matInput placeholder="Surname" formControlName="surName">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Date End</mat-label>
+        <input matInput [matDatepicker]="picker2">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
       </mat-form-field>
     </p>
     <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" required formControlName="email">
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-form-field appearance="legacy">
+        <input matInput placeholder="HH:MM" formControlName="hours">
       </mat-form-field>
-    </p>
-    <h4>Requested value:</h4>
-    <p class="form-group">
-      <input class="form-control form-control-lg" type="number" value="20000" data-decimals="0" min="10000" max="100000"
-        step="10000" formControlName="creditAmount" />
     </p>
 
   </main>
