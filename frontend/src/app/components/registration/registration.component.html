@@ -34,9 +34,11 @@
 
   <main>
     <p id="container-radio-button">
-      <mat-radio-group aria-label="Select an option" formControlName="typeService">
-        <mat-radio-button value="1">Servicio de Emergencia</mat-radio-button>
-        <mat-radio-button value="2">Revision Técnica</mat-radio-button>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+        [(ngModel)]="favoriteSeason" formControlName="typeService">
+        <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+          {{season}}
+        </mat-radio-button>
       </mat-radio-group>
     </p>
     <h4>Final date and time:</h4>
@@ -60,6 +62,6 @@
   </main>
 
   <footer>
-    <button mat-raised-button color="accent" type="submit" (click)="sendInformation(registerForm.value)">Send</button>
+    <button disabled="false" mat-raised-button color="accent" type="submit" (click)="sendInformation(registerForm.value)">Send</button>
   </footer>
 </form>

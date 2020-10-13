@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {finalize, map, mergeMap, switchMap, takeUntil, tap} from 'rxjs/operators';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import * as moment from 'moment';
-import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
-
+import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { HoursService } from '../../services/hours.service'
+import { Subject } from 'rxjs';
 
 export const MY_FORMATS = {
   parse: {
@@ -27,31 +28,43 @@ export const MY_FORMATS = {
       useClass: MomentDateAdapter,
       deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
     },
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
 })
 export class RegistrationComponent implements OnInit {
-
+  destroy$: Subject<boolean> = new Subject();
+  favoriteSeason: string;
+  seasons: string[] = ['Emergency Service', 'Technical Service'];
   date = new FormControl();
-  showModal = false;
-  resultCredit : number;
+  resultCredit: number;
   email = new FormControl('', [Validators.required]);
   registerForm: FormGroup;
-  constructor(private formBuilder: FormBuilder
-    ) {
-      this.registerForm = this.formBuilder.group({
-        registrationNumber: ['', Validators.required],
-        dateInit: ['', Validators.required],
-        hoursInit: ['', Validators.required],
-        dateEnd: ['', Validators.required],
-        hoursEnd: ['', Validators.required],
-        typeService: ['', Validators.required],
-      });
-    }
-  ngOnInit(): void {}
+  dateFormat = 'DD/MM/YYYY HH:mm:ss';
+
+  constructor(private formBuilder: FormBuilder,
+    private hoursService: HoursService,
+  ) {
+    this.registerForm = this.formBuilder.group({
+      registrationNumber: ['', Validators.required],
+      dateInit: ['', Validators.required],
+      hoursInit: ['', Validators.required],
+      dateEnd: ['', Validators.required],
+      hoursEnd: ['', Validators.required],
+      typeService: ['', Validators.required],
+    });
+  }
+  ngOnInit(): void { }
 
   sendInformation(values) {
     console.log(values);
+    this.hoursService.saveRegister$(values)
+      .pipe(
+        takeUntil(this.destroy$)
+      ).subscribe()
   }
-
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
 }
+
