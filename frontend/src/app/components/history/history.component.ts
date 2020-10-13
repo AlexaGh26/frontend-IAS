@@ -21,8 +21,6 @@ export class HistoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.credictService.approvedCredits.then(item => this.dataSource = new MatTableDataSource<PeriodicElement>(item));
-    this.credictService.rejectedCredits.then(item => this.dataSourceRejected = new MatTableDataSource<PeriodicElement>(item));
 
   }
 

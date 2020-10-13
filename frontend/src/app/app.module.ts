@@ -10,7 +10,6 @@ import { LayoutModule } from './components/layout/layout.module';
 import { CommonModule } from "@angular/common";
 import { TableModule } from './components/table/table.module';
 import { HistoryModule } from './components/history/history.module';
-import { ShowValueModule } from './components/show-value/show-value.module';
 import { ModalResultCreditModalModule } from './components/modal-result-credit/modal-result-credit.module';
 import {CreditService} from './services/credit.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     TableModule,
     HistoryModule,
-    ShowValueModule,
     ModalResultCreditModalModule,
     HttpClientModule
   ],

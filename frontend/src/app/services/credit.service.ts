@@ -11,12 +11,7 @@ export class CreditService {
     
   }
 
-  get approvedCredits(): Promise<any> {
-   return this.http.get('http://localhost:3000/credits?approved=true').toPromise();
-  }
-  get rejectedCredits(): Promise<any> {
-   return this.http.get('http://localhost:3000/credits?approved=false').toPromise();
-  }
+  
 
   credit(body:any) {
     fetch('http://localhost:3000/credits', {
