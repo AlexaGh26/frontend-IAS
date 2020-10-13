@@ -10,7 +10,6 @@ import { LayoutModule } from './components/layout/layout.module';
 import { CommonModule } from "@angular/common";
 import { HistoryModule } from './components/history/history.module';
 import { ModalResultCreditModalModule } from './components/modal-result-credit/modal-result-credit.module';
-import {CreditService} from './services/credit.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
