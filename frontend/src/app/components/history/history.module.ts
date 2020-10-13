@@ -17,7 +17,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {ModalResultCreditModalModule} from '../modal-result-credit/modal-result-credit.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [HistoryComponent],
@@ -42,7 +42,8 @@ import {MatRadioModule} from '@angular/material/radio';
         MatDatepickerModule,
         ModalResultCreditModalModule,
         ReactiveFormsModule,
-        MatRadioModule
+        MatRadioModule,
+        MatGridListModule
     ]
 })
 export class HistoryModule { }

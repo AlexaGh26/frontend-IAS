@@ -15,4 +15,9 @@ export class HoursService {
     saveRegister$(body):Observable<object> {
         return this.http.post(`${this.port}/form`, body)
     };
+
+    searchRegister$(body): Observable<object> {
+        const { registrationNumber: idTechnical, weekNumber } = body
+        return this.http.get(`${this.port}/consult/${idTechnical}/${weekNumber}`, body)
+    }
 }

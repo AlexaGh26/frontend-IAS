@@ -9,25 +9,26 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
+  ELEMENT_DATA :any = [
+    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  ];
+  displayedColumns: string[] = ['Total Hours Worked', 'Total Extras', 'Nightly Extras', 'Sunday Hours',
+ 'Sunday nightly Extras', 'Normal Hours'];
+  dataSource = this.ELEMENT_DATA;
 
-  dataSource;
-  dataSourceRejected;
-  displayedColumns = ['name', 'surName', 'email', 'date', 'clientId', 'approved', 'id', 'creditAmount'];
-
-  creditForm: FormGroup;
+  searchWeek: FormGroup;
   constructor(private formBuilder: FormBuilder
   ) {
-    this.creditForm = this.formBuilder.group({
+    this.searchWeek = this.formBuilder.group({
       registrationNumber: '',
       weekNumber: '',
     });
   }
 
-  ngOnInit() {
+  ngOnInit() { }
 
-  }
-
-  consult(id) {
+  consult(values) {
+    console.log(values);
     const div = document.getElementById('consultDiv');
     div.style.display = 'block';
   }
