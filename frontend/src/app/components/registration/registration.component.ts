@@ -45,7 +45,7 @@ export class RegistrationComponent implements OnInit {
   dateFormat = 'DD/MM/YYYY HH:mm:ss';
 
   constructor(private formBuilder: FormBuilder,
-    private hoursService: HoursService,
+    public hoursService: HoursService,
   ) {
     this.registerForm = this.formBuilder.group({
       registrationNumber: ['', Validators.required],
@@ -59,7 +59,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void { }
 
   sendInformation(values) {
-    const validationDateInit = this.validationDate();
+    const validationDateInit = this.validationDate(values);
     if (validationDateInit) {
       alert('The initial date cannot be greater than the final date')
       return;
@@ -73,20 +73,21 @@ export class RegistrationComponent implements OnInit {
       alert('Field without filling out, please enter all the information')
       return;
     }
-    confirm('successfully saved record')
     this.hoursService.saveRegister$(values)
       .pipe(
         takeUntil(this.destroy$)
-      ).subscribe()
+      ).subscribe(() => alert('successfully saved record'))
   }
+
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
   }
-  validationDate() {
-    const dateInitFormat = moment(this.registerForm.value.dateInit, 'DD/MM/YYYY HH:mm:ss');
-    const dateEndFormat = moment(this.registerForm.value.dateEnd, 'DD/MM/YYYY HH:mm:ss');
+
+  validationDate(values:any): boolean {
+    const {dateInit, dateEnd } = values
+    const dateInitFormat = moment(dateInit, 'DD/MM/YYYY HH:mm:ss');
+    const dateEndFormat = moment(dateEnd, 'DD/MM/YYYY HH:mm:ss');
     return dateInitFormat.isAfter(dateEndFormat);
   }
 }
-

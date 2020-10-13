@@ -18,6 +18,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
+import { NoopAnimationPlayer, query } from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HoursService } from 'src/app/services/hours.service';
+import { of } from 'rxjs';
 
 
 describe('HistoryComponent', () => {
@@ -52,6 +56,24 @@ describe('HistoryComponent', () => {
         ReactiveFormsModule,
         HttpClientModule,
         BrowserModule,
+        BrowserAnimationsModule
+      ],
+      providers: [
+        {
+          provide: HoursService,
+          useValue: {searchRegister$ :(param) => of([
+            {
+                "HoursWorkedWeek": 50,
+                "totalExtraHours": 28,
+                "totalHoursExtraNight": 9,
+                "totalSundayHours": 15,
+                "sundayNightExtraHours": 4,
+                "normalHours": 22,
+                "dateInit": "09/03/2020 00:00:00",
+                "dateEnd": "15/03/2020 00:00:00"
+            }
+        ])}
+        }
       ]
     })
     .compileComponents();
@@ -66,4 +88,18 @@ describe('HistoryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Should query the results' , () => {
+    expect(component.consult('')).toBeUndefined();
+  })
+
+  it('dateInit should be truthy', () => {
+    component.consult('');
+    expect(component.dateInit).toBeTruthy();
+  })
+
+  it('Should call showDiv', () => {
+    component.showDiv();
+    expect(document.querySelector('#consultDiv')).toBeTruthy();
+  })
 });
