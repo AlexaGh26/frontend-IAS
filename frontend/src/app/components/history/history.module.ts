@@ -14,7 +14,6 @@ import { CommonModule } from "@angular/common";
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {ModalResultCreditModalModule} from '../modal-result-credit/modal-result-credit.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -40,7 +39,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
         MatButtonModule,
         MatCardModule,
         MatDatepickerModule,
-        ModalResultCreditModalModule,
         ReactiveFormsModule,
         MatRadioModule,
         MatGridListModule

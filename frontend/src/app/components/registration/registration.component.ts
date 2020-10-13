@@ -59,7 +59,6 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void { }
 
   sendInformation(values) {
-    console.log(values);
     const validationDateInit = this.validationDate();
     if (validationDateInit) {
       alert('The initial date cannot be greater than the final date')

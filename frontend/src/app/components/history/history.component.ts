@@ -38,11 +38,13 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit() { }
 
-  consult(value) {
-    console.log(value);
+  showDiv() {
     const div = document.getElementById('consultDiv');
     div.style.display = 'block';
+  }
 
+  consult(value) {
+    this.showDiv();
     this.hoursService.searchRegister$(value)
     .pipe(
       takeUntil(this.destroy$),
@@ -50,12 +52,12 @@ export class HistoryComponent implements OnInit {
         const [ hoursResume ] = data
         const {HoursWorkedWeek, dateEnd, dateInit, normalHours, sundayNightExtraHours,
           totalExtraHours, totalHoursExtraNight, totalSundayHours} =  hoursResume
-        this.ELEMENT_DATA  = [
+          this.dataSource = this.ELEMENT_DATA  = [
           {TotalHoursWorked: HoursWorkedWeek, TotalExtras: totalExtraHours, NightlyExtra: totalHoursExtraNight,
             SundayHours: totalSundayHours, SundayNightlyExtras: sundayNightExtraHours, NormalHours: normalHours},
         ];
-        this.dateEnd = (moment(dateEnd).format('DD/MM/YYYY').toString());
-        this.dateInit = (moment(dateInit).format('DD/MM/YYYY').toString());
+        this.dateEnd = moment(dateEnd, 'DD/MM/YYYY').format('DD/MM/YYYY');
+        this.dateInit = moment(dateInit, 'DD/MM/YYYY').format('DD/MM/YYYY');
         this.idTechnical = this.searchWeek.value.registrationNumber;
       })
     ).subscribe()
@@ -65,5 +67,5 @@ export class HistoryComponent implements OnInit {
     this.destroy$.next(true);
     this.destroy$.complete();
   }
-
 }
+

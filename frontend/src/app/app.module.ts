@@ -9,7 +9,6 @@ import { RegistrationModule } from './components/registration/registration.modul
 import { LayoutModule } from './components/layout/layout.module';
 import { CommonModule } from "@angular/common";
 import { HistoryModule } from './components/history/history.module';
-import { ModalResultCreditModalModule } from './components/modal-result-credit/modal-result-credit.module';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     CommonModule,
     HistoryModule,
-    ModalResultCreditModalModule,
     HttpClientModule
   ],
   providers: [],
