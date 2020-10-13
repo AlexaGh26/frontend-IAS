@@ -4,7 +4,6 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import * as moment from 'moment';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import { environment } from 'src/environments/environment.dev';
-import { CreditService } from 'src/app/services/credit.service';
 
 
 export const MY_FORMATS = {
@@ -39,7 +38,7 @@ export class RegistrationComponent implements OnInit {
   resultCredit : number;
   email = new FormControl('', [Validators.required, Validators.email]);
   creditForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private creditService: CreditService
+  constructor(private formBuilder: FormBuilder
     ) {
       this.creditForm = this.formBuilder.group({
         registrationNumber: '',
@@ -50,44 +49,6 @@ export class RegistrationComponent implements OnInit {
         clientId: ''
       });
     }
-
-
   ngOnInit(): void {}
 
-  getErrorMessage() {
-    this.email.hasError('required') ? '' : '';
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  approbalCredit(){
-    const creditAmount = this.creditForm.controls['creditAmount'].value;
-    const date = moment(this.creditForm.controls['date'].value).toLocaleString();
-    const approved = this.randmApproval() ;
-    
-    if(creditAmount <= environment.DEFAULTCREDITVALUE) {
-      const body = {
-        ...this.creditForm.value,
-        date,
-        approved
-      };
-      environment.DEFAULTCREDITVALUE = environment.DEFAULTCREDITVALUE - creditAmount;
-      this.creditService.credit(body);
-    }
-
-   
-  }
-
-  randmApproval(): boolean {
-    const result = !!(Math.round(Math.random()))
-    if (result) {
-      this.showModal = true;
-      this.resultCredit = 1;
-    } else {
-      this.showModal = true;
-      this.resultCredit = 0;
-    }
-    return (result)
-  }
-  
-  
 }

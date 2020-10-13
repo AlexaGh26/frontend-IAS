@@ -3,7 +3,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { PeriodicElement } from 'src/app/models/periodic.model';
-import { CreditService } from 'src/app/services/credit.service';
 import { ELEMENT_DATA } from 'src/app/utils/const';
 
 @Component({
@@ -18,7 +17,7 @@ export class HistoryComponent implements OnInit {
   displayedColumns = ['name', 'surName', 'email', 'date', 'clientId', 'approved', 'id', 'creditAmount'];
 
   creditForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private creditService: CreditService
+  constructor(private formBuilder: FormBuilder
     ) {
       this.creditForm = this.formBuilder.group({
         registrationNumber: '',
