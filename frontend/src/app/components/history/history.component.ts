@@ -16,20 +16,20 @@ export class HistoryComponent implements OnInit {
 
   creditForm: FormGroup;
   constructor(private formBuilder: FormBuilder
-    ) {
-      this.creditForm = this.formBuilder.group({
-        registrationNumber: '',
-        weekNumber: '',
-      });
-    }
+  ) {
+    this.creditForm = this.formBuilder.group({
+      registrationNumber: '',
+      weekNumber: '',
+    });
+  }
 
   ngOnInit() {
 
   }
 
-  check(event) {
-    console.log(event);
-    
+  consult(id) {
+    const div = document.getElementById('consultDiv');
+    div.style.display = 'block';
   }
-  
+
 }

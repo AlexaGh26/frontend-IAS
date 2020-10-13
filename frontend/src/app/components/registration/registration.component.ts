@@ -57,6 +57,7 @@ export class RegistrationComponent implements OnInit {
 
   sendInformation(values) {
     console.log(values);
+    confirm('successfully saved record')
     this.hoursService.saveRegister$(values)
       .pipe(
         takeUntil(this.destroy$)
