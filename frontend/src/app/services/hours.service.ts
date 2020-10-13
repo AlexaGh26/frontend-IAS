@@ -10,9 +10,8 @@ export class HoursService {
 
     port = 'http://localhost:3001'
 
-    constructor(private http: HttpClient) {
-
-    }
+    constructor(private http: HttpClient) {}
+    
     saveRegister$(body):Observable<object> {
         return this.http.post(`${this.port}/form`, body)
     };

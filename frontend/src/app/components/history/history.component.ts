@@ -2,8 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { PeriodicElement } from 'src/app/models/periodic.model';
-import { ELEMENT_DATA } from 'src/app/utils/const';
 
 @Component({
   selector: 'app-history',

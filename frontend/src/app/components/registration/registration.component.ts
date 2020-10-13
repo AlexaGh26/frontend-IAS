@@ -3,7 +3,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as moment from 'moment';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
-import { environment } from 'src/environments/environment.dev';
 
 
 export const MY_FORMATS = {
@@ -36,19 +35,23 @@ export class RegistrationComponent implements OnInit {
   date = new FormControl();
   showModal = false;
   resultCredit : number;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  creditForm: FormGroup;
+  email = new FormControl('', [Validators.required]);
+  registerForm: FormGroup;
   constructor(private formBuilder: FormBuilder
     ) {
-      this.creditForm = this.formBuilder.group({
-        registrationNumber: '',
-        hours: '',
-        email: new FormControl('', [Validators.required, Validators.email]),
-        date: '',
-        creditAmount: '',
-        clientId: ''
+      this.registerForm = this.formBuilder.group({
+        registrationNumber: ['', Validators.required],
+        dateInit: ['', Validators.required],
+        hoursInit: ['', Validators.required],
+        dateEnd: ['', Validators.required],
+        hoursEnd: ['', Validators.required],
+        typeService: ['', Validators.required],
       });
     }
   ngOnInit(): void {}
+
+  sendInformation(values) {
+    console.log(values);
+  }
 
 }

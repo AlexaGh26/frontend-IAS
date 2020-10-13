@@ -1,7 +1,7 @@
-<form id="container-form" [formGroup]="creditForm">
+<form id="container-form" [formGroup]="registerForm" >
   <header>
     <div class="container-title">
-      <h2>Registration:</h2>
+      <h2>Service Register:</h2>
       <span>Please enter your information</span>
     </div>
   </header>
@@ -16,52 +16,44 @@
     <p>
       <mat-form-field appearance="fill">
         <mat-label>Date Start</mat-label>
-        <input matInput [matDatepicker]="dp" formControlName="date">
+        <input matInput [matDatepicker]="dp" formControlName="dateInit">
         <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
         <mat-datepicker #dp></mat-datepicker>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="legacy">
-        <input matInput placeholder="HH:MM" formControlName="hours">
+        <input matInput placeholder="HH:MM" formControlName="hoursInit">
       </mat-form-field>
     </p>
   </aside>
 
   <main>
     <p id="container-radio-button">
-      <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="1">Servicio de Emergencia</mat-radio-button>
+      <mat-radio-group aria-label="Select an option" formControlName="typeService" >
+        <mat-radio-button value="1" >Servicio de Emergencia</mat-radio-button>
         <mat-radio-button value="2">Revision Técnica</mat-radio-button>
       </mat-radio-group>
     </p>
     <h4>Final date and time:</h4>
     <p>
-      <mat-form-field color="accent" appearance="fill">
+      <mat-form-field color="accent" appearance="fill" >
         <mat-label>Date End</mat-label>
-        <input matInput [matDatepicker]="picker2">
+        <input matInput [matDatepicker]="picker2"  formControlName="dateEnd">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2 color="primary"></mat-datepicker>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="legacy">
-        <input matInput placeholder="HH:MM" formControlName="hours">
+        <input matInput placeholder="HH:MM" formControlName="hoursEnd">
       </mat-form-field>
     </p>
 
   </main>
 
   <footer>
-      <button mat-raised-button color="accent" >Send</button>
-      <div *ngIf="showModal">
-        <h1 mat-dialog-title>your credit score</h1>
-        <div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>
-        <div mat-dialog-actions>
-          <button mat-button mat-dialog-close>Close</button>
-      </div>
-
-    </div>
-
+      <button mat-raised-button color="accent" 
+       type="submit" (click)="sendInformation(registerForm.value)">Send</button>
   </footer>
 </form>
