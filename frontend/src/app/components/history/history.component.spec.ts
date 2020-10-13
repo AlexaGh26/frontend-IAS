@@ -70,7 +70,8 @@ describe('HistoryComponent', () => {
                 "sundayNightExtraHours": 4,
                 "normalHours": 22,
                 "dateInit": "09/03/2020 00:00:00",
-                "dateEnd": "15/03/2020 00:00:00"
+                "dateEnd": "15/03/2020 00:00:00",
+                "validation": 1
             }
         ])}
         }

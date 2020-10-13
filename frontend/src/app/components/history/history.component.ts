@@ -48,17 +48,28 @@ export class HistoryComponent implements OnInit {
     this.hoursService.searchRegister$(value)
     .pipe(
       takeUntil(this.destroy$),
-      tap( (data: Array<any>) => {
-        const [ hoursResume ] = data
-        const {HoursWorkedWeek, dateEnd, dateInit, normalHours, sundayNightExtraHours,
-          totalExtraHours, totalHoursExtraNight, totalSundayHours} =  hoursResume
-          this.dataSource = this.ELEMENT_DATA  = [
-          {TotalHoursWorked: HoursWorkedWeek, TotalExtras: totalExtraHours, NightlyExtra: totalHoursExtraNight,
-            SundayHours: totalSundayHours, SundayNightlyExtras: sundayNightExtraHours, NormalHours: normalHours},
-        ];
-        this.dateEnd = moment(dateEnd, 'DD/MM/YYYY').format('DD/MM/YYYY');
-        this.dateInit = moment(dateInit, 'DD/MM/YYYY').format('DD/MM/YYYY');
-        this.idTechnical = this.searchWeek.value.registrationNumber;
+      tap((data: Array<any>) => {
+        
+        if (data[0].validation === 1) {
+          const [hoursResume] = data
+          const { HoursWorkedWeek, dateEnd, dateInit, normalHours,
+            sundayNightExtraHours, totalExtraHours, totalHoursExtraNight,
+            totalSundayHours } = hoursResume
+
+          this.dataSource = this.ELEMENT_DATA = [
+            {
+              TotalHoursWorked: HoursWorkedWeek, TotalExtras: totalExtraHours,
+              NightlyExtra: totalHoursExtraNight, SundayHours: totalSundayHours,
+              SundayNightlyExtras: sundayNightExtraHours, NormalHours: normalHours
+            },
+          ];
+          this.dateEnd = moment(dateEnd, 'DD/MM/YYYY').format('DD/MM/YYYY');
+          this.dateInit = moment(dateInit, 'DD/MM/YYYY').format('DD/MM/YYYY');
+          this.idTechnical = this.searchWeek.value.registrationNumber;
+        } else {
+          alert('The technician did not work that week, please find another')
+        }
+
       })
     ).subscribe()
   }

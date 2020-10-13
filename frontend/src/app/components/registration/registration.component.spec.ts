@@ -81,17 +81,6 @@ describe('RegistrationComponent', () => {
   expect(component.registerForm.value).toBeTruthy();
   })
 
-  it('Should validate the date', () => {
-    component.registerForm.setValue({
-      registrationNumber: '123',
-      dateInit: '04/10/2020 08:00:00',
-      dateEnd: '05/10/2020 08:00:00',
-      hoursInit: 123,
-      hoursEnd: '123',
-      typeService: '123',
-    })
-    expect(component.validationDate(component.registerForm)).toBeFalse();
-  })
   it('Should validate the init before the end date', () => {
     component.registerForm.setValue({
       registrationNumber: '123',
@@ -101,6 +90,6 @@ describe('RegistrationComponent', () => {
       hoursEnd: '123',
       typeService: '123',
     })
-    expect(component.validationDate(component.registerForm)).toBeTrue();
+    expect(component.validationDate(component.registerForm)).toBeFalse();
   })
 });
