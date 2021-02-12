@@ -6,7 +6,7 @@
         <span>Please enter technician id and week number</span>
       </div>
     </header>
-  
+
     <aside>
       <div class="container-input">
         <mat-form-field appearance="legacy">
@@ -20,7 +20,12 @@
     <footer>
         <button mat-raised-button color="accent" type="submit" (click)="consult(searchWeek.value)" >Search</button>
     </footer>
+<div class="div-prueba">
+  <div></div>
+  <div></div>
+  <div></div>
 
+</div>
     <div id="consultDiv">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -28,17 +33,17 @@
           <th mat-header-cell *matHeaderCellDef> Total Hours Worked </th>
           <td mat-cell *matCellDef="let element"> {{element.TotalHoursWorked}} </td>
         </ng-container>
-      
+
         <ng-container matColumnDef="Total Extras">
           <th mat-header-cell *matHeaderCellDef> Total Extras </th>
           <td mat-cell *matCellDef="let element"> {{element.TotalExtras}} </td>
         </ng-container>
-      
+
         <ng-container matColumnDef="Nightly Extras">
           <th mat-header-cell *matHeaderCellDef> Nightly Extras </th>
           <td mat-cell *matCellDef="let element"> {{element.NightlyExtra}} </td>
         </ng-container>
-      
+
         <ng-container matColumnDef="Sunday Hours">
           <th mat-header-cell *matHeaderCellDef> Sunday Hours </th>
           <td mat-cell *matCellDef="let element"> {{element.SundayHours}} </td>
@@ -53,7 +58,7 @@
           <th mat-header-cell *matHeaderCellDef> Normal Hours </th>
           <td mat-cell *matCellDef="let element"> {{element.NormalHours}} </td>
         </ng-container>
-      
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
@@ -72,8 +77,8 @@
           </div>
         </div>
         </div>
-    
+
   </form>
-  
-  
+
+
 </div>

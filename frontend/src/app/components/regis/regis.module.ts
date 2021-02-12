@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
-import { HistoryComponent} from './history.component'
-import {MatMenuModule} from '@angular/material/menu';
-import { RouterModule } from '@angular/router';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTabsModule} from '@angular/material/tabs';
 import { MenuModule } from '../menu/menu.module';
+import { RegisComponent } from './regis.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
@@ -16,20 +11,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
-import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
-  declarations: [HistoryComponent],
-  exports: [HistoryComponent],
+  declarations: [RegisComponent],
+  exports: [RegisComponent],
     imports: [
-        MatButtonModule,
-        MatMenuModule,
-        RouterModule,
-        MenuModule,
-        CommonModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatTabsModule,
         MenuModule,
         MatFormFieldModule,
         MatInputModule,
@@ -40,9 +26,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
         MatCardModule,
         MatDatepickerModule,
         ReactiveFormsModule,
-        MatRadioModule,
-        MatGridListModule,
-        MatFormFieldModule,
+        MatRadioModule
     ]
 })
-export class HistoryModule { }
+export class RegisModule { }
+

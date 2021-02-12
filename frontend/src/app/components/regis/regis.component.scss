@@ -109,6 +109,7 @@ h4 {
   #title-two{
     @extend #title-one;
   }
-:host ::ng-deep .mat-icon-button {
-  color: blue;
-}
+  :host ::ng-deep .mat-icon-button {
+    color: green;
+  }
+

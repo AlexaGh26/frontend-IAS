@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './pages/home/home.module';
 import { RegistrationModule } from './components/registration/registration.module';
+import { RegisModule } from './components/regis/regis.module';
 import { LayoutModule } from './components/layout/layout.module';
 import { CommonModule } from "@angular/common";
 import { HistoryModule } from './components/history/history.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ExampleModule } from './pages/example/example.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     CommonModule,
     HistoryModule,
-    HttpClientModule
+    HttpClientModule,
+    ExampleModule,
+    RegisModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

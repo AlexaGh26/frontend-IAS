@@ -49,7 +49,7 @@ export class HistoryComponent implements OnInit {
     .pipe(
       takeUntil(this.destroy$),
       tap((data: Array<any>) => {
-        
+
         if (data[0].validation === 1) {
           const [hoursResume] = data
           const { HoursWorkedWeek, dateEnd, dateInit, normalHours,
